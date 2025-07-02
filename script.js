@@ -41,10 +41,11 @@ function getOperatorsFunction(operator) {
 function operate(operator, x, y) {
 	if (operator === "") {
 		return x || 0;
-	}
+	} 
 
-	// sets y to x if y is null
-	y = y || x;
+	if (operator === "÷" && y == "0") {
+		return "Nah uh"
+	}
 
 	x = parseInt(x);
 	y = parseInt(y);
@@ -53,7 +54,7 @@ function operate(operator, x, y) {
 
 	let sum = operatorFunction(x, y);
 
-	return sum;
+    return +sum.toFixed(9);
 }
 
 let numberX = "";
@@ -71,7 +72,7 @@ numberButtons.forEach(button => {
 		let number = button.innerText;
 
 		if (currentOperator === '') {
-			if (numberX == "0") {
+			if (numberX == "0" || isNaN(parseInt(numberX))) {
 				numberX = ""
 			}
 
@@ -118,13 +119,23 @@ clearButton.addEventListener("click", function () {
 let equalsButton = document.querySelector("#equals");
 
 equalsButton.addEventListener("click", function () {
+	if (numberY == "") {
+		currentOperator = "";
+
+		currentInput = "";
+		inputDisplay.innerText = "0";
+		numberX = "";
+		currentOperator = "";
+		return;
+	}
+
 	let sum = operate(currentOperator, numberX, numberY);
 
 	currentOperator = "";
 	numberY = "";
 
-	currentInput = sum;
+	currentInput = "";
 	inputDisplay.innerText = sum;
 
-	numberX = sum;
+	numberX = "";
 })
