@@ -49,8 +49,29 @@ function operate(operator, x, y) {
 	return sum;
 }
 
-// let numberX = 1;
-// let numberY = 2;
-// let operator = "Add"
-//
-// const sum = operate(operator, numberX, numberY);
+let numberX;
+let numberY;
+let operator = ""
+
+let currentInput = "";
+let inputDisplay = document.querySelector("#input");
+
+let numberButtons = document.querySelectorAll(".number");
+
+numberButtons.forEach(button => {
+	button.addEventListener("click", function() {
+		currentInput += button.innerText;
+		inputDisplay.innerText = currentInput;	
+	})
+});
+
+let mainOperatorsContainer = document.querySelector("#main-operators");
+let mainOperatorButtons = mainOperatorsContainer.querySelectorAll(".operator");
+
+mainOperatorButtons.forEach(button => {
+	button.addEventListener("click", function() {
+		currentInput += button.innerText;
+		inputDisplay.innerText = currentInput;	
+	})
+});
+
