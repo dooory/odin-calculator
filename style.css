@@ -83,7 +83,7 @@ button {
 	gap: 5px;
 }
 
-#operators-container {
+#main-operators {
 	display: flex;
 	flex: 1 1 50%;
 	flex-direction: column;
@@ -95,11 +95,17 @@ button {
 	width: 100px;
 }
 
-#equals-container {
+#secondary-operators {
 	flex: 1 1 50%;
 	display: flex;
+	gap: 5px;
+	flex-direction: column;
 }
 
 #equals {
 	flex: auto;
+}
+
+#clear {
+	flex: 0.23 1 auto;
 }
