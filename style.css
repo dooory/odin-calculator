@@ -12,7 +12,29 @@ body {
 }
 
 #calculator-container {
-	background-color: lightslategray;
+	background-color: lightyellow;
 	flex: auto;
 	height: 75vh;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px 20px;
+	border: 5px solid lightpink;
+	border-radius: 8px;
+	max-width: 430px;
 }
+
+#input-container,
+#buttons-container {
+	background-color: lightpink;
+	border-radius: 16px;
+}
+
+#input-container {
+	flex: 0.25 1 auto;
+}
+
+#buttons-container {
+	flex: 1 1 auto;
+}
+
